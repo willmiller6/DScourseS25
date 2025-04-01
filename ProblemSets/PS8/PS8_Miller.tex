@@ -1,0 +1,75 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+
+\usepackage{booktabs}
+\usepackage{siunitx}
+\newcolumntype{d}{S[
+    input-open-uncertainty=,
+    input-close-uncertainty=,
+    parse-numbers = false,
+    table-align-text-pre=false,
+    table-align-text-post=false
+ ]}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Problem Set 8}
+\author{Will Miller}
+
+\begin{document}
+\maketitle
+
+
+\section{Discussion of optimization techniques}
+
+Overall, most of these techniques were very similar. I much prefer the syntax of the nloptr approach to the gradient descent produced using a while loop, and I also found the OLS objective and cost functions easier to understand/work with than the maximum likelihood approach. As I understand it, though, maximum likelihood is about as ubiquitous as it gets in statistics, so I will keep reading/practicing so I can understand it better. 
+As for comparing coefficients, I found that all of the methods we used were essentially identical, at least to the number of digitis that R is capable of displaying them to. For each result, I got coefficients of 1.50029, -0.9978091, -0.2493249, 0.7485952 3.500883, -1.999718, 0.5005669, 0.99937,  1.251415, and 1.999692. 
+In terms of computational efficiency, I found that both L-BFGS methods (typical gradient descent and maximum likelihood) ran quickly when compared to the Nelder-Mead algorithm, with the gradient descent L-BFGS taking 10 iterations to reach the optimal solution, maximum likelihood L-BFGS taking 76 iterations to reach the optimal solution, and the Nelder-Mead simplex method taking 1,725, a quite substantial increase. I think this drastic difference is likely due to the relative computational simplicity of the ordinary least squares estimator. Its cost function is quite simple, so something like Nelder-Mead is just overkill. 
+I also have to assume that the methods relying on the closed form solution (the linear algebra approach and the lm() approach) were by far the most efficient because they directly produce analytic solutions rather than relying on numerical approximation which is always more costly.
+
+\begin{table}
+\centering
+\caption{Coefficients estimated using lm()}
+\begin{tabular}[t]{lc}
+\toprule
+  & (1)\\
+\midrule
+X1 & \num{1.50}***\\
+ & (\num{0.00})\\
+X2 & \num{-1.00}***\\
+ & (\num{0.00})\\
+X3 & \num{-0.25}***\\
+ & (\num{0.00})\\
+X4 & \num{0.75}***\\
+ & (\num{0.00})\\
+X5 & \num{3.50}***\\
+ & (\num{0.00})\\
+X6 & \num{-2.00}***\\
+ & (\num{0.00})\\
+X7 & \num{0.50}***\\
+ & (\num{0.00})\\
+X8 & \num{1.00}***\\
+ & (\num{0.00})\\
+X9 & \num{1.25}***\\
+ & (\num{0.00})\\
+X10 & \num{2.00}***\\
+ & (\num{0.00})\\
+\bottomrule
+\multicolumn{2}{l}{\rule{0pt}{1em}+ p $<$ 0.1, * p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001}\\
+\end{tabular}
+\end{table}
+
+
+
+\end{document}
