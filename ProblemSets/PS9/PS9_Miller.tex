@@ -1,0 +1,59 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Problem Set 9}
+\author{William Miller}
+
+\begin{document}
+\maketitle
+
+\section{Problem Set Questions}
+
+\subsection{Training Data Dimensions}
+My housing\_test dataframe has 74 features while the original housing\_data dataframe had 14. That means we introduced 60 new features with our recipe
+
+\subsection{LASSO Model}
+My best $\lambda$ is 0.00139, with an in-sample RMSE of 1.96 and an out-of-sample RMSE of 1.95. I have also produced two diagnostic plots attached to this document.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{LASSO CSV Lambda plot.png}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{LASSO prediction accuracy.png}
+\end{figure}
+
+\subsection{Ridge Model}
+My best $\lambda$ was 0.0146, with an in-sample RMSE of 1.96 and an out-of-sample RMSE of 1.95. This was very similar to the LASSO model. Diagnostic plots for my ridge model are also available at the end of this document.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Ridge CV Lambda Plot.png}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Ridge Prediction Accuracy.png}
+\end{figure}
+
+\subsection{OLS with k>n}
+I don't believe OLS will produce a unique solution with more features than observations, which is why tools like LASSO and PCA are so useful for "big data" situations.
+
+\section{Bias-Variance Tradeoff}
+Because our in-sample and out-of-sample RMSE are small and quite similar for both models, I would say we are effectively balanced bias and variance.
+
+\end{document}
