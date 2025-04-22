@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Data Science for Economists Final Project Rough Draft}
+\author{Will Miller}
+\date{April 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Overview}
+
+My paper has been completed already this semester. It was originally prepared for the 89th Annual MEA Meetings in Kansas City in March of this year. Below is the abstract and a brief summary of each section
+
+\section{Abstract}
+On the final play of the now famous football game between Boston College and Miami, BC quarterback Doug Flutie threw a miraculous touchdown pass to lift the Eagles over the Hurricanes, etching his name in the college football history books and propelling his team into the spotlight. The surge in applications received by Boston College in the subsequent months was dubbed the “Flutie Effect,” and in the years since, a reasonably large body of literature has emerged to study the impact of college football success on overall university growth. I seek to investigate whether a similar surge of applications results from making the College Football Playoff. My results indicate that being ranking in the final week of the Associated Press Top 25 poll in the prior season is associated with an approximate 4-5\% increase in applications received by a school, but that elite levels of success—including a top-10 ranking, a playoff berth, and even a national championship win—do not carry with them statistically significant increases in applications to a school. I present the diminishing marginal exposure hypothesis to explain this phenomenon and support my results with a subsequent analysis using Google Trends data. Overall, my results challenge the perspective that elite level college football success are associated with strong increases in national university profile and instead indicate that schools can successfully boost their national profile to attract new applicants with modest football success especially if that success is unexpected. 
+
+\section{Introduction}
+
+\begin{itemize}
+    \item College Football has evolved from a recreational activity into a \$15 billion industry, playing a central role in the competition for prestige among American universities.
+
+    \item Court rulings enabling name, image, and likeness (NIL) deals---and potentially direct university compensation---are amplifying the influence of athletics on campus life, bringing their admissions relevance into sharper focus.
+
+    \item Universities are leveraging football success, alumni networks, and local sponsorships to attract top athletes, with the expectation that this attention will spill over to boost general student applications.
+
+    \item This paper investigates whether making the College Football Playoff increases a university's applicant pool, subjecting the conventional wisdom that wins in football lead to growth to rigorous scrutiny.
+\end{itemize}
+
+\section{Lit Review}
+
+\begin{itemize}
+
+    \item Doug Flutie’s legendary game winning hail mary in 1984 is said to have sparked a 30\% rise in Boston College applications, giving rise to the term “Flutie Effect”—--the idea that athletic success boosts university visibility and applications.
+
+    \item  McCormick & Tinsley (1987) were the first to investigate the Flutie Effect, and they found links between athletic conference membership and SAT scores, though their cross-sectional approach lacked the depth to assess year-to-year changes.
+
+    \item Later research using fixed effects (Murphy & Trandel, 1994; Pope & Pope, 2009; Chung, 2013) found consistent evidence that football and basketball success increases applicant numbers, with varying effects across student ability levels and demographics.
+
+    \item Interestingly, the “Anti-Flutie Effect”: Studies show that NCAA sanctions (e.g., bowl bans) can harm a university’s academic profile, reducing applications and worsening rankings (Cormier et al., 2023; Eggers et al., 2019).
+
+    \item My paper’s contribution: Despite decades of research on the Flutie Effect, little has focused specifically on the College Football Playoff; the author aims to fill that gap.
+    
+\end{itemize}
+
+\section{Data and Methods}
+
+\begin{itemize}
+
+    \item I leverage a novel panel dataset of 127 Division I Football Bowl Subdivision (FBS) schools from the 2014–15 to 2021–22 seasons. I argue that this subset is more relevant than the full universe of Division I schools (FBS + FCS) that are included in the vast majority of papers on this topic because only FBS teams can make the playoffs or win the national championship.
+
+    \item The key independent variables are lagged indicators for AP Top 25 ranking, AP Top 10 ranking, CFP appearance, and National Championship win. These are lagged by one year since application decisions are made after the football season ends.
+
+    \item I include log tuition, faculty salary, number of high school graduates, and household income, which are standard controls in the literature. 
+
+    \item I approach this research question with an AR(1) dynamic panel model estimated using the Arellano-Bond Difference GMM method to address endogeneity and Nickell bias.
+
+    \item The use of a dynamic model is justified by real-world reinforcement mechanisms such as reputational effects and peer influence in college decision-making, which cause application numbers to be temporally persistent.
+    
+\end{itemize}
+
+\section{Results}
+
+\begin{itemize}
+    
+    \item Key Finding---Being ranked in the AP Top 25 in the prior year significantly increases university applications by about 4.1–4.8\%, translating to roughly 940 additional applications annually for the median school. Other football achievements (Top 10, Playoff, National Title) show no statistically significant effects, even when tested separately.
+
+    \item The lack of impact from elite football success may stem from the dominance of a few programs (Alabama, Clemson, Ohio State, Georgia, Oklahoma), which already possess strong reputations. Their continued success likely reinforces existing perceptions rather than attracting new interest.
+
+    \item The model meets key assumptions—--no second-order autocorrelation (AR(2) p = 0.392), valid instruments (Sargan p = 0.494), and stable coefficients across alternative IVs. Time fixed effects and linear trends were excluded due to insignificance and performance deterioration.
+
+    
+    \item Reestimating my models after excluding outliers or “blue blood” schools (the handfull of schools that have the highest probability of winning every year) yielded consistent results--—Top 25 ranking remains significant; other football variables remain insignificant. Outliers appeared to add noise, and excluding them improved model reliability.
+
+    \item I believe my findings support the idea of diminishing marginal returns to football success. That is to say, being ranked may generate enough publicity to influence applications, while further success (e.g., playoffs) adds little incremental value. I discuss this further in the next section, which while not in the rubric, I believe is the best part of my paper.
+    
+\end{itemize}
+
+\section{Diminishing Marginal Exposure Hypothesis}
+
+\begin{itemize}
+    \item My favorite part of this paper is what I call the "Diminishing Marginal Exposure Hypothesis." Briefly, elite football success (like winning a national championship) may offer limited additional application benefits beyond what’s already achieved from being ranked or having a standout season, due to diminishing returns in media exposure.
+
+    \item In the smartphone and social media era, schools gain meaningful exposure from exceeding expectations, even without elite success, through viral moments and increased online visibility, which can significantly influence prospective students and does not require a "name brand" football program.
+
+    \item I illustrate this point with a case study---the Mississippi State Bulldogs in 2014-15. Despite not making the playoff, Mississippi State's unexpected ranking during the season led to their highest-ever Google search volume. This spike in exposure correlated with increased applications, showing the power of surprising---but moderate---success.
+
+    \item I contrast that with Ohio State in the same season. Although Ohio State won the national title that year, their already-strong reputation meant the additional exposure had less relative impact. This supports the idea that schools with established football brands see smaller marginal gains from further success.
+
+    \item If football success influences applications mainly through exposure (as past research and my analysis suggest), then being ranked or having an unexpectedly good season often provides sufficient visibility, making elite postseason achievements less impactful.
+    
+\end{itemize}
+
+\section{Conclusion}
+
+\begin{itemize}
+    \item Key Finding: A Top 25 ranking significantly boosts university applications, while deeper levels of football success (Top 10, playoff appearances, national championships) have much smaller effects.
+    \item Explanation – Diminishing Marginal Exposure: The most important factor is initial exposure—once a school is in the public eye, further success adds little incremental value in attracting applicants.
+\end{itemize}
+
+
+\end{document}
